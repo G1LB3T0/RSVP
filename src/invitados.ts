@@ -1,0 +1,58 @@
+export interface Invitado {
+  id: number
+  nombre: string
+  invitados: number
+  adicional: number
+}
+
+export const listaInvitados: Invitado[] = [
+  { id: 1, nombre: "Familia Casasola Juarez", invitados: 3, adicional: 0 },
+  { id: 2, nombre: "Familia Juarez Solis", invitados: 5, adicional: 1 },
+  { id: 3, nombre: "Familia Garcia Juarez", invitados: 3, adicional: 1 },
+  { id: 4, nombre: "Jose & July", invitados: 2, adicional: 0 },
+  { id: 5, nombre: "Renato Juarez", invitados: 2, adicional: 0 },
+  { id: 6, nombre: "Familia Juarez Donis", invitados: 2, adicional: 0 },
+  { id: 7, nombre: "Rocio Juarez", invitados: 1, adicional: 0 },
+  { id: 8, nombre: "Paty y Roberto", invitados: 4, adicional: 0 },
+  { id: 9, nombre: "Tia Irma", invitados: 1, adicional: 0 },
+  { id: 10, nombre: "Rosaura Wilkinson", invitados: 2, adicional: 0 },
+  { id: 11, nombre: "Geovany & Dulce", invitados: 2, adicional: 0 },
+  { id: 12, nombre: "Tia Mary", invitados: 1, adicional: 0 },
+  { id: 13, nombre: "Alexhey & Elizabeth", invitados: 2, adicional: 0 },
+  { id: 14, nombre: "Jose Manuel Donis", invitados: 2, adicional: 0 },
+  { id: 15, nombre: "Erick Peruch & Fam", invitados: 4, adicional: 0 },
+  { id: 16, nombre: "Elfego & Rubi", invitados: 2, adicional: 0 },
+  { id: 17, nombre: "Gonzalo", invitados: 1, adicional: 0 },
+  { id: 18, nombre: "Karla", invitados: 1, adicional: 0 },
+  { id: 19, nombre: "Barbara", invitados: 1, adicional: 0 },
+  { id: 20, nombre: "Padre Cristian", invitados: 2, adicional: 0 },
+  { id: 21, nombre: "Valdemar y Señora", invitados: 2, adicional: 0 },
+  { id: 22, nombre: "Selvin y Señora", invitados: 2, adicional: 0 },
+  { id: 23, nombre: "Jhonatan y Señora", invitados: 2, adicional: 0 },
+  { id: 24, nombre: "Edna Alvarez", invitados: 1, adicional: 0 },
+  { id: 25, nombre: "Juan Alvarez y Familia", invitados: 3, adicional: 0 },
+  { id: 26, nombre: "Oslec Alvarez y Señora", invitados: 2, adicional: 0 },
+  { id: 27, nombre: "Hugo Hernandez", invitados: 1, adicional: 0 },
+  { id: 28, nombre: "Walter Hernandez", invitados: 1, adicional: 0 },
+  { id: 29, nombre: "Katty Alvarez", invitados: 1, adicional: 0 },
+  { id: 30, nombre: "Gloria Hernandez", invitados: 1, adicional: 0 },
+  { id: 31, nombre: "Buenaventura Donis y Fam", invitados: 2, adicional: 0 },
+  { id: 32, nombre: "Victor Alvarez y Fam", invitados: 2, adicional: 0 },
+  { id: 33, nombre: "Luis Gomez y Esposa", invitados: 2, adicional: 0 },
+  { id: 34, nombre: "Ever Santis y Esposa", invitados: 2, adicional: 0 },
+  { id: 35, nombre: "Randolfo Villegas y Esposa", invitados: 2, adicional: 0 },
+  { id: 36, nombre: "Mirella Villegas y Familia", invitados: 3, adicional: 0 },
+  { id: 37, nombre: "Cesar Solares y Fam", invitados: 3, adicional: 0 },
+  { id: 38, nombre: "Rodolfo Solorzano y Fam", invitados: 4, adicional: 0 },
+  { id: 39, nombre: "Marlon Belteton", invitados: 1, adicional: 0 },
+  { id: 40, nombre: "Marlon Puente", invitados: 1, adicional: 0 },
+  { id: 41, nombre: "Eddy Estrada", invitados: 1, adicional: 0 },
+  { id: 42, nombre: "Edgar Reyes", invitados: 1, adicional: 0 },
+  { id: 43, nombre: "Maridalma Donis", invitados: 2, adicional: 0 },
+  { id: 44, nombre: "Delida Donis", invitados: 1, adicional: 0 },
+  { id: 45, nombre: "Mayra Alvarez", invitados: 2, adicional: 0 },
+  { id: 46, nombre: "Rosi Alvarez", invitados: 2, adicional: 0 },
+  { id: 47, nombre: "Luis Valdez", invitados: 2, adicional: 0 },
+  { id: 48, nombre: "Marta de Valdez", invitados: 1, adicional: 0 },
+  { id: 49, nombre: "William Lopez", invitados: 2, adicional: 0 }
+]

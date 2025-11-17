@@ -1,0 +1,18 @@
+services:
+  wedding-rsvp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wedding-rsvp-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_GOOGLE_SCRIPT_URL=${VITE_GOOGLE_SCRIPT_URL:-}
+    env_file:
+      - .env.local
+    stdin_open: true
+    tty: true
