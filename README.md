@@ -1,19 +1,19 @@
-# 💍 Sistema RSVP para Boda
+# Sistema RSVP para Boda
 
 Sistema completo de confirmación de asistencia para bodas, construido con React + Vite + TypeScript + Docker + Google Apps Script.
 
-## ✨ Características
+## Características
 
-- 🔍 **Búsqueda inteligente** de invitados
-- ✅ **Validación de confirmaciones previas** - evita duplicados
-- 👥 **Control de cupos** - respeta el número de invitados asignados
-- 📝 **Formulario condicional** según asistencia (Sí/No)
-- 📊 **Almacenamiento en Google Sheets** en tiempo real
-- 🐳 **Dockerizado** para desarrollo fácil
-- 📱 **Responsive** - funciona en móviles y escritorio
-- 🎨 **Interfaz moderna** con gradientes y animaciones
+- **Búsqueda inteligente** de invitados
+- **Validación de confirmaciones previas** - evita duplicados
+- **Control de cupos** - respeta el número de invitados asignados
+- **Formulario condicional** según asistencia (Sí/No)
+- **Almacenamiento en Google Sheets** en tiempo real
+- **Dockerizado** para desarrollo fácil
+- **Responsive** - funciona en móviles y escritorio
+- **Interfaz moderna** con gradientes y animaciones
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### Prerrequisitos
 
@@ -50,7 +50,7 @@ Sistema completo de confirmación de asistencia para bodas, construido con React
 6. **Abre tu navegador**
    - Visita: http://localhost:5173
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 weeding/
@@ -72,7 +72,7 @@ weeding/
 └── README.md                # Este archivo
 ```
 
-## 🔧 Configuración Detallada
+## Configuración Detallada
 
 ### Lista de Invitados
 
@@ -106,19 +106,19 @@ Actualiza la constante `SPREADSHEET_ID` en `google-apps-script.js`.
 VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/TU_SCRIPT_ID/exec
 ```
 
-## 🎯 Flujo de Usuario
+## Flujo de Usuario
 
 1. **Búsqueda**: El invitado escribe su nombre
 2. **Selección**: Elige su nombre de la lista filtrada
 3. **Verificación**: El sistema verifica si ya confirmó
-   - ✅ Ya confirmó: Muestra mensaje de confirmación previa
-   - ❌ No ha confirmado: Muestra formulario
+   - Ya confirmó: Muestra mensaje de confirmación previa
+   - No ha confirmado: Muestra formulario
 4. **Formulario**:
    - Si asiste: Indica cuántos asistirán y quiénes faltan
    - Si no asiste: Puede dejar un comentario
 5. **Confirmación**: Los datos se guardan en Google Sheets
 
-## 🐳 Docker
+## Docker
 
 ### Desarrollo
 ```bash
@@ -131,14 +131,14 @@ docker build -f Dockerfile.prod -t wedding-rsvp-prod .
 docker run -p 80:80 wedding-rsvp-prod
 ```
 
-## 📊 Datos en Google Sheets
+## Datos en Google Sheets
 
 Las confirmaciones se guardan con las siguientes columnas:
 
 | Fecha | ID Invitado | Nombre | Email | Teléfono | Asistencia | Asistentes | Faltantes | Observaciones |
 |-------|-------------|--------|-------|----------|------------|------------|-----------|---------------|
 
-## 🎨 Personalización
+## Personalización
 
 ### Colores y Estilos
 
@@ -154,14 +154,14 @@ Los textos del formulario están en `src/App.tsx`. Busca las secciones:
 - `<header>` - Título principal
 - Mensajes de cada paso del formulario
 
-## 🔒 Seguridad
+## Seguridad
 
-- ✅ Validación de invitados contra lista predefinida
-- ✅ Prevención de confirmaciones duplicadas
-- ✅ Validación de cupos máximos
-- ✅ Google Apps Script con permisos controlados
+- Validación de invitados contra lista predefinida
+- Prevención de confirmaciones duplicadas
+- Validación de cupos máximos
+- Google Apps Script con permisos controlados
 
-## 🆘 Soporte
+## Soporte
 
 Si tienes problemas:
 
@@ -179,7 +179,7 @@ Si tienes problemas:
    - Asegúrate de estar en el directorio `weeding`
    - Intenta `docker-compose down` y luego `docker-compose up --build`
 
-## 💡 Consejos
+## Consejos
 
 - Prueba primero con invitados de prueba
 - Haz un backup de tu Google Sheet regularmente
@@ -188,4 +188,4 @@ Si tienes problemas:
 
 ---
 
-¡Felicidades por tu boda! 🎉💕
+¡Felicidades por tu boda!

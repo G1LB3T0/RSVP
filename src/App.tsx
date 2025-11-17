@@ -116,7 +116,7 @@ function App() {
       })
 
       setStep('completado')
-      setSubmitMessage('¡Gracias por confirmar tu asistencia! 🎉')
+      setSubmitMessage('¡Gracias por confirmar tu asistencia!')
     } catch (error) {
       console.error('Error al enviar:', error)
       setSubmitMessage('Hubo un error al enviar el formulario. Por favor intenta nuevamente.')
@@ -145,7 +145,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>💍 RSVP - Nuestra Boda</h1>
+        <h1>RSVP - Nuestra Boda</h1>
         <p>Por favor confirma tu asistencia</p>
       </header>
       
@@ -190,7 +190,7 @@ function App() {
 
         {step === 'yaConfirmado' && (
           <div className="already-confirmed">
-            <div className="success-icon">✅</div>
+            <div className="success-icon">✓</div>
             <h2>Ya has confirmado tu asistencia</h2>
             <p>Hola <strong>{selectedInvitado?.nombre}</strong>,</p>
             <p>Ya registraste tu confirmación anteriormente.</p>
@@ -324,7 +324,7 @@ function App() {
 
         {step === 'completado' && (
           <div className="success-section">
-            <div className="success-icon">🎉</div>
+            <div className="success-icon">✓</div>
             <h2>{submitMessage}</h2>
             <p>Hemos registrado tu confirmación exitosamente.</p>
             <p>¡Te esperamos!</p>
