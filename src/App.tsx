@@ -7,12 +7,10 @@ type Step = 'buscar' | 'confirmar' | 'yaConfirmado' | 'completado'
 interface ConfirmacionData {
   invitadoId: number
   nombre: string
-  email: string
   telefono: string
   asistencia: 'si' | 'no'
   asistentes: number
   faltantes: string
-  observaciones: string
 }
 
 function App() {
@@ -23,26 +21,28 @@ function App() {
   const [formData, setFormData] = useState<ConfirmacionData>({
     invitadoId: 0,
     nombre: '',
-    email: '',
     telefono: '',
     asistencia: 'si',
     asistentes: 0,
-    faltantes: '',
-    observaciones: ''
+    faltantes: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
-  // Filtrar invitados mientras escribe
+  // Filtrar invitados mientras escribe con debounce
   useEffect(() => {
-    if (searchTerm.length >= 2) {
-      const filtered = listaInvitados.filter(inv =>
-        inv.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      setFilteredInvitados(filtered)
-    } else {
-      setFilteredInvitados([])
-    }
+    const timer = setTimeout(() => {
+      if (searchTerm.length >= 2) {
+        const filtered = listaInvitados.filter(inv =>
+          inv.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        setFilteredInvitados(filtered)
+      } else {
+        setFilteredInvitados([])
+      }
+    }, 200)
+
+    return () => clearTimeout(timer)
   }, [searchTerm])
 
   const handleSelectInvitado = async (invitado: Invitado) => {
@@ -103,12 +103,10 @@ function App() {
       params.append('action', 'confirmar')
       params.append('invitadoId', formData.invitadoId.toString())
       params.append('nombre', formData.nombre)
-      params.append('email', formData.email)
       params.append('telefono', formData.telefono)
       params.append('asistencia', formData.asistencia)
       params.append('asistentes', formData.asistentes.toString())
       params.append('faltantes', formData.faltantes)
-      params.append('observaciones', formData.observaciones)
 
       await fetch(`${scriptUrl}?${params.toString()}`, {
         method: 'GET',
@@ -132,12 +130,10 @@ function App() {
     setFormData({
       invitadoId: 0,
       nombre: '',
-      email: '',
       telefono: '',
       asistencia: 'si',
       asistentes: 0,
-      faltantes: '',
-      observaciones: ''
+      faltantes: ''
     })
     setSubmitMessage('')
   }
@@ -145,8 +141,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>RSVP - Nuestra Boda</h1>
-        <p>Por favor confirma tu asistencia</p>
+        <div className="nombres-boda">
+          <span className="nombre-novia">Dana</span>
+          <span className="ampersand">&</span>
+          <span className="nombre-novio">Bladimir</span>
+        </div>
+        <p className="subtitulo-header">Por favor confirma tu asistencia</p>
       </header>
       
       <main className="form-container">
@@ -210,31 +210,6 @@ function App() {
 
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="email">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="telefono">Teléfono</label>
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  value={formData.telefono}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div className="form-group">
                 <label htmlFor="asistencia">¿Confirmas tu asistencia? *</label>
                 <select
                   id="asistencia"
@@ -250,6 +225,18 @@ function App() {
 
               {formData.asistencia === 'si' && (
                 <>
+                  <div className="form-group">
+                    <label htmlFor="telefono">Teléfono</label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
                   <div className="form-group">
                     <label htmlFor="asistentes">¿Cuántos van a asistir? *</label>
                     <input
@@ -280,34 +267,7 @@ function App() {
                       />
                     </div>
                   )}
-
-                  <div className="form-group">
-                    <label htmlFor="observaciones">Observaciones o restricciones alimentarias</label>
-                    <textarea
-                      id="observaciones"
-                      name="observaciones"
-                      value={formData.observaciones}
-                      onChange={handleChange}
-                      rows={3}
-                      placeholder="Alergias, vegetariano, vegano, etc."
-                      disabled={isSubmitting}
-                    />
-                  </div>
                 </>
-              )}
-
-              {formData.asistencia === 'no' && (
-                <div className="form-group">
-                  <label htmlFor="observaciones">¿Deseas dejar algún comentario?</label>
-                  <textarea
-                    id="observaciones"
-                    name="observaciones"
-                    value={formData.observaciones}
-                    onChange={handleChange}
-                    rows={3}
-                    disabled={isSubmitting}
-                  />
-                </div>
               )}
 
               <div className="button-group">

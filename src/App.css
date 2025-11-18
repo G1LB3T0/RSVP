@@ -1,274 +1,550 @@
+/* --------------------------------------- */
+/* PALETA                                   */
+/* --------------------------------------- */
+
+:root {
+  --color-principal: #73867D;    /* Grey Olive */
+  --color-secundario: #CAA9A2;  /* Rosy Taupe */
+  --color-oro-suave: #ECD9D6;   /* Soft Blush */
+  --color-borde: #A2A296;       /* Ash Grey */
+  --color-texto: #3f3f3f;
+  --color-bg: #73867D;          /* Verde Grey Olive para fondo */
+  --radius: 16px;
+}
+
+/* --------------------------------------- */
+/* RESETEO                                  */
+/* --------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #73867D 0%, #5d6f67 50%, #73867D 100%);
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(202, 169, 162, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(236, 217, 214, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
 .App {
-  max-width: 800px;
+  width: 100%;
+  max-width: 580px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
+
+/* --------------------------------------- */
+/* HEADER                                   */
+/* --------------------------------------- */
 
 .App-header {
-  margin-bottom: 40px;
-  padding: 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 40px 24px;
+  background: white;
+  border-radius: var(--radius);
+  border: 3px solid var(--color-oro-suave);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-.App-header h1 {
-  margin: 0 0 10px 0;
+.nombres-boda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.nombre-novio,
+.nombre-novia {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  color: var(--color-principal);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.ampersand {
+  font-family: "Playfair Display", serif;
   font-size: 2.5rem;
+  color: var(--color-secundario);
+  font-weight: 300;
 }
 
-.App-header p {
-  margin: 0;
-  font-size: 1.2rem;
-  opacity: 0.9;
+.subtitulo-header {
+  margin-top: 8px;
+  color: var(--color-secundario);
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
+
+/* --------------------------------------- */
+/* TARJETA PRINCIPAL                        */
+/* --------------------------------------- */
 
 .form-container {
   background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.form-group label {
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-  font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #667eea;
-}
-
-.form-group input:disabled,
-.form-group select:disabled,
-.form-group textarea:disabled {
-  background-color: #f5f5f5;
-  cursor: not-allowed;
-}
-
-.form-group textarea {
-  resize: vertical;
-}
-
-.submit-btn {
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.submit-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.submit-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.submit-message {
-  padding: 15px;
-  border-radius: 8px;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-.submit-message.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-.submit-message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-.footer {
-  margin-top: 40px;
-  padding: 20px;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* Búsqueda de invitados */
-.search-section {
+  padding: 36px;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-secundario);
+  box-shadow: 0 8px 24px rgba(202, 169, 162, 0.15), 0 2px 6px rgba(0,0,0,0.04);
+  animation: fadeIn 0.3s ease;
   text-align: center;
 }
 
-.search-section h2 {
-  color: #333;
+/* --------------------------------------- */
+/* TEXTOS Y TITULOS                         */
+/* --------------------------------------- */
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
   margin-bottom: 20px;
+  color: var(--color-principal);
+  text-align: center;
+  font-weight: 600;
 }
+
+.search-section h2 {
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --------------------------------------- */
+/* BUSCADOR                                 */
+/* --------------------------------------- */
 
 .search-input {
   width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  transition: border-color 0.3s;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-secundario);
+  background: white;
+  color: var(--color-texto);
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: var(--color-secundario);
+  opacity: 0.6;
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: #667eea;
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(115, 134, 125, 0.1);
 }
+
+/* --------------------------------------- */
+/* LISTA DE INVITADOS                       */
+/* --------------------------------------- */
 
 .invitados-list {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .invitado-item {
-  padding: 15px 20px;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
+  width: 100%;
+  border: 1.5px solid var(--color-borde);
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: #fff;
   text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
 }
 
 .invitado-item:hover {
-  border-color: #667eea;
-  transform: translateX(5px);
-  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+  background: linear-gradient(135deg, var(--color-oro-suave) 0%, rgba(202, 169, 162, 0.1) 100%);
+  border-color: var(--color-secundario);
+  box-shadow: 0 4px 12px rgba(202, 169, 162, 0.3);
+  transform: translateY(-2px);
 }
 
 .invitado-nombre {
   font-weight: 600;
-  color: #333;
-  font-size: 16px;
+  margin-bottom: 4px;
+  color: var(--color-principal);
+  font-size: 1.05rem;
 }
 
 .invitado-info {
-  color: #666;
-  font-size: 14px;
-  margin-top: 5px;
+  font-size: 0.9rem;
+  color: var(--color-secundario);
+  font-weight: 500;
+}
+
+/* --------------------------------------- */
+/* FORMULARIO                               */
+/* --------------------------------------- */
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--color-principal);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  background: var(--color-oro-suave);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-secundario);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-borde);
+  background: white;
+  color: var(--color-texto);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-borde);
+  opacity: 0.7;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(115, 134, 125, 0.1);
+}
+
+small {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-secundario);
+  font-weight: 500;
+}
+
+/* --------------------------------------- */
+/* BOTONES                                  */
+/* --------------------------------------- */
+
+button {
+  cursor: pointer;
+}
+
+.btn-secondary,
+.submit-btn {
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn-secondary {
+  background: var(--color-oro-suave);
+  color: var(--color-principal);
+  border: 2px solid var(--color-secundario);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secundario);
+  color: white;
+  box-shadow: 0 4px 12px rgba(202, 169, 162, 0.4);
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--color-principal) 0%, #5d6f67 100%);
+  color: white;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #5d6f67 0%, var(--color-principal) 100%);
+  box-shadow: 0 4px 12px rgba(115, 134, 125, 0.4);
+  transform: translateY(-2px);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.invitacion-info {
+  background: linear-gradient(135deg, var(--color-oro-suave) 0%, rgba(202, 169, 162, 0.2) 100%);
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-secundario);
+  margin-bottom: 24px;
+  color: var(--color-principal);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(202, 169, 162, 0.2);
 }
 
 .no-results {
   text-align: center;
   color: #999;
   margin-top: 20px;
+  font-style: italic;
 }
 
-/* Sección de confirmación */
-.confirmation-section h2,
-.already-confirmed h2,
-.success-section h2 {
-  color: #333;
-  margin-bottom: 10px;
-}
+/* --------------------------------------- */
+/* SECCIONES DE ESTADO                      */
+/* --------------------------------------- */
 
-.invitacion-info {
-  background: #f0f4ff;
-  padding: 15px;
-  border-radius: 8px;
-  color: #667eea;
-  font-size: 16px;
-  margin-bottom: 30px;
+.success-section,
+.already-confirmed {
   text-align: center;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.btn-secondary {
-  flex: 1;
-  padding: 15px 30px;
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background: #f0f4ff;
-}
-
-.already-confirmed,
-.success-section {
-  text-align: center;
-  padding: 40px 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(236, 217, 214, 0.3) 0%, rgba(202, 169, 162, 0.1) 100%);
+  border-radius: var(--radius);
+  border: 2px solid var(--color-oro-suave);
 }
 
 .success-icon {
-  font-size: 72px;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  color: var(--color-secundario);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(202, 169, 162, 0.3);
 }
 
-.already-confirmed p,
-.success-section p {
-  color: #666;
-  font-size: 16px;
-  margin: 10px 0;
+.success-section p,
+.already-confirmed p {
+  color: var(--color-principal);
+  font-weight: 500;
 }
 
-@media (max-width: 600px) {
+/* --------------------------------------- */
+/* FOOTER                                   */
+/* --------------------------------------- */
+
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* --------------------------------------- */
+/* RESPONSIVE                               */
+/* --------------------------------------- */
+
+/* iPhone (Portrait) - 375px - 428px */
+@media (max-width: 430px) {
+  body {
+    padding: 8px;
+  }
+
   .App {
-    padding: 10px;
+    padding: 8px;
+    max-width: 100%;
   }
-  
-  .App-header h1 {
-    font-size: 2rem;
+
+  .App-header {
+    padding: 24px 16px;
+    margin-bottom: 20px;
   }
-  
+
+  .nombres-boda {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nombre-novio,
+  .nombre-novia {
+    font-size: 2.2rem;
+  }
+
+  .ampersand {
+    font-size: 1.8rem;
+  }
+
+  .subtitulo-header {
+    font-size: 0.9rem;
+  }
+
   .form-container {
-    padding: 20px;
+    padding: 20px 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  label {
+    font-size: 0.95rem;
+    padding: 6px 10px;
+  }
+
+  .search-input,
+  input,
+  select,
+  textarea {
+    padding: 12px;
+    font-size: 16px; /* Evita zoom automático en iOS */
+  }
+
+  .invitado-item {
+    padding: 14px 16px;
+  }
+
+  .invitado-nombre {
+    font-size: 1rem;
+  }
+
+  .invitado-info {
+    font-size: 0.85rem;
   }
 
   .button-group {
     flex-direction: column;
+    gap: 12px;
   }
+
+  .btn-secondary,
+  .submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
+  .invitacion-info {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+
+  .success-icon {
+    font-size: 2.5rem;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    margin-top: 20px;
+  }
+}
+
+/* iPad Mini / iPad (Portrait) - 744px - 834px */
+@media (min-width: 431px) and (max-width: 834px) {
+  .App {
+    max-width: 640px;
+    padding: 16px;
+  }
+
+  .App-header {
+    padding: 36px 24px;
+  }
+
+  .nombre-novio,
+  .nombre-novia {
+    font-size: 2.8rem;
+  }
+
+  .form-container {
+    padding: 32px 28px;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  .button-group {
+    gap: 14px;
+  }
+}
+
+/* iPad Pro (Portrait) - 1024px */
+@media (min-width: 835px) and (max-width: 1024px) {
+  .App {
+    max-width: 700px;
+  }
+
+  .App-header {
+    padding: 48px 32px;
+  }
+
+  .nombre-novio,
+  .nombre-novia {
+    font-size: 3.2rem;
+  }
+
+  .form-container {
+    padding: 40px 36px;
+  }
+}
+
+/* Landscape mode para móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .App {
+    margin: 20px auto;
+  }
+
+  .App-header {
+    padding: 20px 24px;
+  }
+
+  .nombres-boda {
+    gap: 12px;
+  }
+
+  .nombre-novio,
+  .nombre-novia {
+    font-size: 2rem;
+  }
+
+  .ampersand {
+    font-size: 1.6rem;
+  }
+}
+
+/* --------------------------------------- */
+/* ANIMACIONES                              */
+/* --------------------------------------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
