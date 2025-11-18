@@ -296,7 +296,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>Sistema de confirmación para nuestra boda</p>
+        <p>Esperamos contar con tu presencia en este día tan especial para nosotros</p>
+        <p className="footer-nombres">Dana & Bladimir</p>
       </footer>
     </div>
   )
